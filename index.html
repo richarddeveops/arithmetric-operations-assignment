@@ -3,9 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arithmetic Operations assignment</title>
+    <meta name="theme-color" content="#f5f7f2">
+    <title>Richarddevlab — Area calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#" aria-label="Richarddevlab home">
+                <span class="brand-mark" aria-hidden="true">S</span>
+                <span>Richarddevlab</span>
+            </a>
+            <p class="header-note">Your friendly geometry toolkit</p>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="eyebrow-dot"></span> Math made clear</p>
+                    <h1 id="hero-title">Find the area.<br><span>Keep it simple.</span></h1>
+                    <p class="hero-description">Choose a shape, enter its measurements, and let the numbers do their thing.</p>
+                    <div class="shape-tags" aria-label="Available calculators">
+                        <span class="shape-tag"><span class="tag-icon triangle-icon" aria-hidden="true"></span>Triangle</span>
+                        <span class="shape-tag"><span class="tag-icon square-icon" aria-hidden="true"></span>Square</span>
+                        <span class="shape-tag"><span class="tag-icon circle-icon" aria-hidden="true"></span>Circle</span>
+                        <span class="shape-tag"><span class="tag-icon diamond-icon" aria-hidden="true"></span>And more</span>
+                    </div>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <span class="art-orbit orbit-one"></span>
+                    <span class="art-orbit orbit-two"></span>
+                    <span class="art-circle"></span>
+                    <span class="art-square"></span>
+                    <span class="art-triangle"></span>
+                    <span class="art-sparkle sparkle-one">✳</span>
+                    <span class="art-sparkle sparkle-two">✦</span>
+                    <span class="art-label">A = ?</span>
+                </div>
+                <div class="hero-sticker" aria-hidden="true"><span>+</span><span>÷</span><span>×</span></div>
+            </section>
+
+            <section class="calculators-section" aria-labelledby="calculators-title">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow section-eyebrow">Pick your formula</p>
+                        <h2 id="calculators-title">Area calculators</h2>
+                    </div>
+                    <p class="section-aside">A few numbers are all it takes <span aria-hidden="true">↘</span></p>
+                </div>
+
+                <div class="calculator-grid">
+                    <article class="calculator-card card-peach">
+                        <div class="card-topline"><span class="shape-illustration triangle-illustration" aria-hidden="true"></span><span class="card-number">01 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Triangle</h3>
+                        <p class="card-description">A little base and height are all you need.</p>
+                        <div class="formula" aria-label="Area equals one half times base times height">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = <span class="fraction"><span>1</span><span>2</span></span> × b × h</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Base <span class="variable">(b)</span></span><span class="input-wrap"><input type="number" id="oneTrianb" placeholder="e.g. 8" aria-label="Base (b) units" step="any"><span>units</span></span></label>
+                            <label class="field"><span>Height <span class="variable">(h)</span></span><span class="input-wrap"><input type="number" id="oneTrianh" placeholder="e.g. 5" aria-label="Height (h) units" step="any"><span>units</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="triangle()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayTriangle">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-lilac">
+                        <div class="card-topline"><span class="shape-illustration square-illustration" aria-hidden="true"></span><span class="card-number">02 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Square</h3>
+                        <p class="card-description">Measure one side to find the whole area.</p>
+                        <div class="formula" aria-label="Area equals side times side">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = s × s</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Side length <span class="variable">(s)</span></span><span class="input-wrap"><input type="number" id="oneSquare" placeholder="e.g. 6" aria-label="Side length (s) units" step="any"><span>units</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="square()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displaySquare">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-blue">
+                        <div class="card-topline"><span class="shape-illustration circle-illustration" aria-hidden="true"></span><span class="card-number">03 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Circle</h3>
+                        <p class="card-description">One radius reveals the space inside.</p>
+                        <div class="formula" aria-label="Area equals pi times radius squared">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = π × r²</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Radius <span class="variable">(r)</span></span><span class="input-wrap"><input type="number" id="oneCircle" placeholder="e.g. 4" aria-label="Radius (r) units" step="any"><span>units</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="circle()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayCircle">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-green">
+                        <div class="card-topline"><span class="shape-illustration quadrilateral-illustration" aria-hidden="true"></span><span class="card-number">04 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Quadrilateral</h3>
+                        <p class="card-description">Use a diagonal and the heights on either side.</p>
+                        <div class="formula" aria-label="Area equals one half times diagonal times the sum of two heights">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = ½ × d × (h₁ + h₂)</span>
+                        </div>
+                        <div class="field-row field-row-three">
+                            <label class="field"><span>Diagonal <span class="variable">(d)</span></span><span class="input-wrap"><input type="number" id="oneQuadrilaterald" placeholder="e.g. 8" aria-label="Diagonal (d) units" step="any"><span>u</span></span></label>
+                            <label class="field"><span>Height 1 <span class="variable">(h₁)</span></span><span class="input-wrap"><input type="number" id="oneQuadrilateralh1" placeholder="e.g. 6" aria-label="Height one (h1) units" step="any"><span>u</span></span></label>
+                            <label class="field"><span>Height 2 <span class="variable">(h₂)</span></span><span class="input-wrap"><input type="number" id="oneQuadrilateralh2" placeholder="e.g. 4" aria-label="Height two (h2) units" step="any"><span>u</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="quadrilateral()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayQuadrilateral">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-yellow">
+                        <div class="card-topline"><span class="shape-illustration diamond-illustration" aria-hidden="true"></span><span class="card-number">05 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Rhombus</h3>
+                        <p class="card-description">Multiply its diagonals, then take half.</p>
+                        <div class="formula" aria-label="Area equals one half times diagonal one times diagonal two">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = ½ × d₁ × d₂</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Diagonal 1 <span class="variable">(d₁)</span></span><span class="input-wrap"><input type="number" id="oneRhombusd1" placeholder="e.g. 10" aria-label="Diagonal one (d1) units" step="any"><span>units</span></span></label>
+                            <label class="field"><span>Diagonal 2 <span class="variable">(d₂)</span></span><span class="input-wrap"><input type="number" id="oneRhombusd2" placeholder="e.g. 8" aria-label="Diagonal two (d2) units" step="any"><span>units</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="rhombus()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayRhombus">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-rose">
+                        <div class="card-topline"><span class="shape-illustration trapezium-illustration" aria-hidden="true"></span><span class="card-number">06 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Trapezium</h3>
+                        <p class="card-description">Add the parallel sides and multiply by height.</p>
+                        <div class="formula" aria-label="Area equals one half times the sum of a and b times height">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = ½ × (a + b) × h</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Side <span class="variable">(a)</span></span><span class="input-wrap"><input type="number" id="oneTrapeziuma" placeholder="e.g. 5" aria-label="Side a units" step="any"><span>units</span></span></label>
+                            <label class="field"><span>Side <span class="variable">(b)</span></span><span class="input-wrap"><input type="number" id="oneTrapeziumb" placeholder="e.g. 7" aria-label="Side b units" step="any"><span>units</span></span></label>
+                            <label class="field"><span>Height <span class="variable">(h)</span></span><span class="input-wrap"><input type="number" id="oneTrapeziumh" placeholder="e.g. 4" aria-label="Height (h) units" step="any"><span>units</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="trapezium()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayTrapezium">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-mint">
+                        <div class="card-topline"><span class="shape-illustration parallelogram-illustration" aria-hidden="true"></span><span class="card-number">07 / 08</span></div>
+                        <p class="card-kicker">Area calculator</p>
+                        <h3>Parallelogram</h3>
+                        <p class="card-description">Base times height — nice and straightforward.</p>
+                        <div class="formula" aria-label="Area equals base times height">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">A = b × h</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Base <span class="variable">(b)</span></span><span class="input-wrap"><input type="number" id="oneParallelogramb" placeholder="e.g. 6" aria-label="Base (b) units" step="any"><span>units</span></span></label>
+                            <label class="field"><span>Height <span class="variable">(h)</span></span><span class="input-wrap"><input type="number" id="oneParallelogramh" placeholder="e.g. 3" aria-label="Height (h) units" step="any"><span>units</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="parallelogram()">Calculate area <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayParallelogram">Your answer will appear here</div></div>
+                    </article>
+
+                    <article class="calculator-card card-peach">
+                        <div class="card-topline"><span class="shape-illustration bmi-illustration" aria-hidden="true">↗</span><span class="card-number">08 / 08</span></div>
+                        <p class="card-kicker">Health calculator</p>
+                        <h3>Body mass index</h3>
+                        <p class="card-description">A quick estimate using your weight and height.</p>
+                        <div class="formula" aria-label="BMI equals weight in kilograms divided by height in meters squared">
+                            <span class="formula-label">The formula</span>
+                            <span class="formula-equation">BMI = kg ÷ m²</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="field"><span>Weight <span class="variable">(kg)</span></span><span class="input-wrap"><input type="number" id="oneBMIweight" placeholder="e.g. 70" aria-label="Weight in kilograms" step="any"><span>kg</span></span></label>
+                            <label class="field"><span>Height <span class="variable">(m)</span></span><span class="input-wrap"><input type="number" id="oneBMIheight" placeholder="e.g. 1.75" aria-label="Height in meters" step="any"><span>m</span></span></label>
+                        </div>
+                        <button class="calculate-button" type="button" onclick="bmi()">Calculate BMI <span aria-hidden="true">→</span></button>
+                        <div class="result" aria-live="polite"><span class="result-label">Your result</span><div id="displayBMI">Your answer will appear here</div></div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <a class="brand footer-brand" href="#" aria-label="Richarddevlab home"><span class="brand-mark" aria-hidden="true">S</span><span>Richarddevlab</span></a>
+            <p>Small steps. Big ideas. <span aria-hidden="true">✳</span></p>
+            <p class="footer-note">Made for curious minds</p>
+        </footer>
+    </div>
     <script src="./app.js"></script>
 </body>
 </html>
