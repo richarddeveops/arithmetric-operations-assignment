@@ -140,6 +140,9 @@ input {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .shape-tag {
@@ -338,7 +341,7 @@ input {
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 16px;
 }
 
@@ -346,6 +349,9 @@ input {
     --card-accent: #bb7556;
     --card-tint: #f7e4da;
     min-width: 0;
+    container: calculator / inline-size;
+    display: flex;
+    flex-direction: column;
     padding: 21px;
     border: 1px solid var(--line);
     border-radius: 17px;
@@ -694,7 +700,7 @@ input {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 11px;
+    margin-top: auto;
     padding: 9px 11px;
     border: 1px solid #edf0ea;
     border-radius: 8px;
@@ -773,9 +779,6 @@ input {
         max-width: 500px;
     }
 
-    .calculator-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
 }
 
 @media (max-width: 600px) {
@@ -841,11 +844,6 @@ input {
         text-align: right;
     }
 
-    .calculator-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
     .calculator-card {
         padding: 19px;
     }
@@ -877,5 +875,54 @@ input {
     *::after {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+.calculator-card:hover {
+    border-color: color-mix(in srgb, var(--card-accent) 32%, white);
+}
+
+.field-row,
+.formula,
+.calculate-button,
+.result {
+    flex-shrink: 0;
+}
+
+@container calculator (max-width: 340px) {
+    .formula {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .field-row-three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .field-row-three .field:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@supports not (container-type: inline-size) {
+    .calculator-card {
+        container-type: normal;
+    }
+
+    @media (max-width: 340px) {
+        .formula {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-row-three {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .field-row-three .field:last-child {
+            grid-column: 1 / -1;
+        }
     }
 }
