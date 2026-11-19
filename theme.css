@@ -1,0 +1,125 @@
+:root {
+    color-scheme: dark;
+    --ink: #f1eee8;
+    --muted: #b8b2a7;
+    --line: #393a3b;
+    --paper: #1a1c20;
+    --green: #f59e0b;
+    --green-dark: #d88900;
+}
+
+body {
+    color: var(--ink);
+    background: #121316;
+}
+
+.site-header,
+.site-footer { border-color: #393a3b; }
+
+.brand,
+.section-heading h2,
+.calculator-card h3 { color: var(--ink); }
+
+.brand-mark,
+.footer-brand .brand-mark {
+    border-color: #52504a;
+    background: transparent;
+    color: #f59e0b;
+}
+
+.hero {
+    min-height: 390px;
+    border: 1px solid #393a3b;
+    border-radius: 3px;
+    background: #1a1c20;
+}
+
+.hero h1 {
+    font-family: "Syne", sans-serif;
+    font-size: clamp(2.9rem, 5.5vw, 5.4rem);
+    font-weight: 600;
+    letter-spacing: -.07em;
+}
+
+.hero h1 span,
+.eyebrow,
+.section-aside span { color: #f59e0b; }
+
+.hero-description,
+.header-note,
+.site-footer p { color: #b8b2a7; }
+
+.shape-tag {
+    border-color: #414247;
+    border-radius: 2px;
+    background: #202226;
+    color: #d1ccc3;
+}
+
+.hero-art { display: none; }
+
+.calculator-grid {
+    gap: 1px;
+    border: 1px solid #393a3b;
+    background: #393a3b;
+}
+
+.calculator-card,
+.calculator-card:hover {
+    border: 0;
+    border-radius: 0;
+    background: #1a1c20;
+    box-shadow: none;
+    transform: none;
+}
+
+.card-peach,
+.card-lilac,
+.card-blue,
+.card-green,
+.card-yellow,
+.card-rose,
+.card-mint {
+    --card-accent: #f59e0b;
+    --card-tint: #29251d;
+}
+
+.card-description { color: #b8b2a7; }
+
+.formula,
+.result {
+    border: 1px solid #393a3b;
+    border-radius: 2px;
+    background: #151619;
+}
+
+.formula-label,
+.result-label,
+.field,
+.variable { color: #b8b2a7; }
+
+.formula-equation,
+.result > div { color: #eee9df; }
+
+.input-wrap {
+    border-color: #46474a;
+    border-radius: 2px;
+    background: #121316;
+}
+
+.input-wrap input { color: #fff; }
+
+.input-wrap:focus-within {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px rgb(245 158 11 / 15%);
+}
+
+.calculate-button {
+    border: 1px solid #f59e0b;
+    border-radius: 2px;
+    background: #f59e0b;
+    color: #191714;
+}
+
+.calculate-button:hover { background: #ffb52e; }
+.result > div p { color: #f59e0b; }
